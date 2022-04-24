@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 17:23:16 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/04/24 17:24:00 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/04/24 18:09:42 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,11 @@
 # define PHILO_H
 
 # include <stdio.h>
+
+typedef struct s_philp
+{
+	int	num;
+}	t_philo;
+
 
 #endif

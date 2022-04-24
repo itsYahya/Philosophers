@@ -6,13 +6,18 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 17:23:07 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/04/24 17:49:50 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/04/24 18:09:51 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-int	main(void)
+int	ft_init()
+{
+	
+}
+
+int	main(int argc, char **argv)
 {
 	return (0);
 }
