@@ -6,18 +6,18 @@
 #    By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/24 17:24:53 by yel-mrab          #+#    #+#              #
-#    Updated: 2022/04/24 17:46:00 by yel-mrab         ###   ########.fr        #
+#    Updated: 2022/04/25 22:49:53 by yel-mrab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-NAME = philo
-INC = -I./inc
+NAME = philo_
+INC = -I ./inc
 
 HEADERS = inc/philo.h
 
-FILES = main
+FILES = main utils pthread
 
 DIRBUILD = build
 OBJ = $(addprefix $(DIRBUILD)/, $(FILES:=.o))
@@ -29,7 +29,7 @@ $(NAME) : $(OBJ)
 
 $(DIRBUILD)/%.o : src/%.c $(HEADERS)
 	mkdir -p $(@D)
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 clean :
 	rm -rf $(DIRBUILD)
