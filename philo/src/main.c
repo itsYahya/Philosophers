@@ -6,45 +6,42 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 17:23:07 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/04/25 23:45:15 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/04/28 05:42:08 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pthread_h.h"
+#include <unistd.h>
+#include <sys/time.h>
 
-void	ft_init_mutix(t_data *data)
+
+void	state_log(t_philo *philo, char *state)
 {
-	int	index;
-	
-	index = 0;
-	while (index < data->philos_number)
-	{
-		pthread_mutex_init(&data->philos[index].right_fork, NULL);
-		index++;
-	}
-	index = 1;
-	while (index < data->philos_number)
-	{
-		data->philos[index].left_fork = &data->philos[index - 1].right_fork;
-		index++;
-	}
-	data->philos[0].left_fork = &data->philos[index - 1].right_fork;
+	pthread_mutex_lock(philo->state_mtx);
+	struct timeval curr;
+	time_t tm;
+	tm = curr.tv_sec;
+	gettimeofday(&curr, NULL);
+	printf("%ld\n", tm);
+	ft_putnbr(philo->number, 10, "0123456789");
+	ft_putstr(state, 1);
+	pthread_mutex_unlock(philo->state_mtx);
 }
 
-int	ft_init_thread(t_data data)
+void	*lifetime(void *data)
 {
-	int	index;
+	t_philo	*philo;
 
-	index = 0;
-	while (index < data.philos_number)
-	{
-		if (pthread_create(&data.philos[index].thrid, NULL, lifetime, &data.philos[index]))
-			return (1);
-		index++;
-	}
-	index  = 0;
-	while (index < data.philos_number)
-		pthread_join(data.philos[index++].thrid, data.data__);
+	philo = (t_philo *)data;
+	pthread_mutex_lock(philo->left_fork);
+	state_log(philo, " has taken a fork\n");
+	pthread_mutex_lock(&philo->right_fork);
+	state_log(philo, " has taken a fork\n");
+	while (philo->time_to_die)
+		philo->time_to_die--;
+	state_log(philo, " ended \n");
+	pthread_mutex_unlock(philo->left_fork);
+	pthread_mutex_unlock(&philo->right_fork);
 	return (0);
 }
 
@@ -60,6 +57,7 @@ int	main(int argc, char **argv)
 			return (printf("error occurs\n"), 0);
 		ft_init_mutix(&data);
 		ft_init_thread(data);
+		ft_destroy_mutix(data);
 	}
 	return (0);
 }

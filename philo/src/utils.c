@@ -6,11 +6,12 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 08:35:36 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/04/25 23:25:58 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/04/28 04:54:52 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+#include "philo.h"
+#include "unistd.h"
 
 int	ft_atoi(char *num)
 {
@@ -58,4 +59,33 @@ int	ft_init(t_data *data, char **args)
 	}
 	data->philos[index - 1].number = index;
 	return (0);
+}
+
+int	ft_strlen(char *str)
+{
+	int	index;
+
+	index = 0;
+	if (!str)
+		return (0);
+	while (str[index])
+		index++;
+	return (index);
+}
+
+void	ft_putstr(char *str, int fd)
+{
+	int	index;
+
+	index = 0;
+	if (!str)
+		return ;
+	write(fd, str, ft_strlen(str));
+}
+
+void	ft_putnbr(int num, int blen, char *base)
+{
+	if (num >= blen)
+		ft_putnbr(num / blen, blen, base);
+	write(1, &base[num % blen], 1);
 }
