@@ -6,7 +6,7 @@
 #    By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/24 17:24:53 by yel-mrab          #+#    #+#              #
-#    Updated: 2022/04/25 22:49:53 by yel-mrab         ###   ########.fr        #
+#    Updated: 2022/04/29 09:11:51 by yel-mrab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ INC = -I ./inc
 
 HEADERS = inc/philo.h
 
-FILES = main utils pthread
+FILES = main utils pthread philo time
 
 DIRBUILD = build
 OBJ = $(addprefix $(DIRBUILD)/, $(FILES:=.o))

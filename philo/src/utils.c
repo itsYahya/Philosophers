@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 08:35:36 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/04/28 04:54:52 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/04/29 09:16:52 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	ft_putstr(char *str, int fd)
 	write(fd, str, ft_strlen(str));
 }
 
-void	ft_putnbr(int num, int blen, char *base)
+void	ft_putnbr(long num, int blen, char *base)
 {
 	if (num >= blen)
 		ft_putnbr(num / blen, blen, base);
