@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 17:23:16 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/04/29 09:42:49 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/04/29 17:56:27 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_philo
 	long			time;
 	int				notpmust_eat;
 	int				number;
-	int				is_th;
 }	t_philo;
 
 typedef struct s_data

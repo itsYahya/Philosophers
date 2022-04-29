@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:06:39 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/04/29 16:00:44 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/04/29 17:33:36 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ void	ft_lock(t_mutex *left_fork, t_mutex *right_fork, t_philo *philo)
 	state_log(philo, " is eating\n");
 }
 
-void	ft_pthread_trylock(t_mutex *left_fork, t_mutex *right_fork, t_philo *philo)
+void	ft_pthread_trylock(t_mutex *left_fork, t_mutex *right_fork, t_philo *philo, int thinking)
 {
+	if ((left_fork->islock || right_fork->islock) && thinking == 0)
+		state_log(philo, " is thinking\n");
 	while (left_fork->islock && right_fork->islock)
 		usleep(1000);
 	if (left_fork->islock == 0 && right_fork->islock == 0)
@@ -55,17 +57,23 @@ void	ft_pthread_trylock(t_mutex *left_fork, t_mutex *right_fork, t_philo *philo)
 void	*lifetime(void *data)
 {
 	t_philo	*philo;
+	int		thinking;
 
-	philo = (t_philo *)data;
-	ft_pthread_trylock(philo->left_fork, &philo->right_fork, philo);
-	while (philo->time_to_die)
-		philo->time_to_die--;
-	// usleep(200);
-	state_log(philo, " ended \n");
-	pthread_mutex_unlock(&philo->left_fork->mutix);
-	philo->left_fork->islock = 0;
-	pthread_mutex_unlock(&philo->right_fork.mutix);
-	philo->right_fork.islock = 0;
+	thinking = 0;
+	while (1)
+	{
+		philo = (t_philo *)data;
+		ft_pthread_trylock(philo->left_fork, &philo->right_fork, philo, 0);
+		usleep(philo->time_to_eat * 1000);
+		pthread_mutex_unlock(&philo->left_fork->mutix);
+		philo->left_fork->islock = 0;
+		pthread_mutex_unlock(&philo->right_fork.mutix);
+		philo->right_fork.islock = 0;
+		state_log(philo, " is sleeping\n");
+		usleep(philo->time_to_sleep * 1000);
+		thinking = 1;
+		state_log(philo, " is thinking\n");
+	}
 	return (0);
 }
 
