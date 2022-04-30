@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 08:35:36 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/04/30 02:25:12 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/04/30 08:51:51 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,10 @@ int	ft_init(t_data *data, char **args)
 		data->philos[index].notpmust_eat = data->philos[0].notpmust_eat;
 		data->philos[index].philos_number = data->philos_number;
 		data->philos[index - 1].number = index;
+		data->philos[index - 1].alive = 1;
 		index++;
 	}
+	data->philos[index - 1].alive = 1;
 	data->philos[index - 1].number = index;
 	return (0);
 }
