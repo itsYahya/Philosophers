@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 17:23:16 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/04/29 17:56:27 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/04/30 02:35:43 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_philo
 	long			time_to_sleep;
 	long			philos_number;
 	long			time;
+	long			lastmeal;
 	int				notpmust_eat;
 	int				number;
 }	t_philo;
@@ -55,8 +56,8 @@ void	ft_putstr(char *str, int fd);
 void	ft_putnbr(long num, int blen, char *base);
 void	state_log(t_philo *philo, char *state);
 void	*lifetime(void *data);
-void	ft_seewhosdead(t_data data);
-long	ft_gettime();
-
+void	ft_seewhosdead(t_data *data);
+long	ft_gettime(void);
+void	ft_init_time(t_data *data);
 
 #endif

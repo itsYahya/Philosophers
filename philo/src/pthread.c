@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 08:37:43 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/04/29 09:46:16 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/04/30 02:29:38 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	ft_init_thread(t_data data)
 	while (index < data.philos_number)
 		if (pthread_detach(data.philos[index++].thrid))
 			return (1);
+	ft_init_time(&data);
 	return (0);
 }
 
