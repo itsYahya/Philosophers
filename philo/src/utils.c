@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 08:35:36 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/04/30 08:51:51 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/04/30 22:21:23 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_init(t_data *data, char **args)
 	data->philos[0].notpmust_eat = -1;
 	if (args[4])
 		data->philos[0].notpmust_eat = ft_atoi(args[4]);
-	index = 1;
+	index = 0;
 	while (index < data->philos_number)
 	{
 		data->philos[index].time_to_die = data->philos[0].time_to_die;
@@ -53,12 +53,10 @@ int	ft_init(t_data *data, char **args)
 		data->philos[index].time_to_sleep = data->philos[0].time_to_sleep;
 		data->philos[index].notpmust_eat = data->philos[0].notpmust_eat;
 		data->philos[index].philos_number = data->philos_number;
-		data->philos[index - 1].number = index;
-		data->philos[index - 1].alive = 1;
+		data->philos[index].number = index + 1;
+		data->philos[index].alive = 1;
 		index++;
 	}
-	data->philos[index - 1].alive = 1;
-	data->philos[index - 1].number = index;
 	return (0);
 }
 
