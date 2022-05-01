@@ -4,20 +4,22 @@ It's the perfect time now to start working with multi threading, because as you 
 
 ## Multithreading
 
-Multithreading is basically splitting machine resources (CPU cores), so we can do more tasks at the same time (it saves time),
+Multithreading is basically splitting machine resources (`CPU cores`), so we can do more tasks at the same time (`it saves time`),
 how is that ?. let's say that you have a routine, and this last needs be done 3 time, and each time uses diffrent input so! the output is obviously not gonna be the same.
 
 Well the solution is just to iterate that routine 3 times and you gonna be just fine, but wait we have a problem, it seems that this solution was quick. no its not (specially in some cases where we don't know where the routine is gonna end).
 
-What we do ? we run them all at once, each one in a thread and we wait for them until they end we prossece their output. see its that easy.
+What we do ? we run them all at once, each one in a `thread` and we wait for them until they end, we prossece their output.
+
+see its that easy.
 
 ## Philosophers
 
-Philosophers is a common problem in computer science, that helps us getting into multithreading programing.
+`Philosophers` is a common problem in computer science, that helps us getting into multithreading programing.
 
-The problem is that we have some stupid philosophers sitting around a table, each one of them with only one fork (the forks are all at the table), the routine is that each one of them should not die (starving), so they should eat.
+The problem is that we have some stupid philosophers sitting around a table, each one of them with only one fork (the forks are all at the table), the routine is that each one of them should not die (`starving`), so they should eat.
 
-They need to use two forks, since they have only one, each one gonna take his neighbor's fork (if that neighbor is not useing it).
+They need to use two `forks`, since they have only one, each one gonna take his neighbor's fork (if that neighbor is not useing it).
 
 If they couldn't eat they think (what other thing a philosopher can do!), until they get to eat or they die starving.
 
