@@ -5,11 +5,11 @@ It's the perfect time now to start working with multi threading, because as you 
 ## Multithreading
 
 Multithreading is basically splitting machine resources (`CPU cores`), so we can do more tasks at the same time (`it saves time`),
-how is that ?. let's say that you have a routine, and this last needs be done 3 time, and each time uses diffrent input so! the output is obviously not gonna be the same.
+How is that ?. let's say that you have a routine, and this last needs be done 3 times, and each time uses diffrent input so! the output is obviously not gonna be the same.
 
 Well the solution is just to iterate that routine 3 times and you gonna be just fine, but wait we have a problem, it seems that this solution was quick. no its not (specially in some cases where we don't know where the routine is gonna end).
 
-What we do ? we run them all at once, each one in a `thread` and we wait for them until they end, we prossece their output.
+What we do ? we run them all at once, each one in a `thread` and we wait for them until they end, we process their output.
 
 see its that easy.
 
@@ -37,9 +37,9 @@ Will happen what's called data race, so keep your data safe and use mutex.
 
 ## Hint
 
-Think of a fork as a mutex (each philosopher should have the mutex's adress of his neighber)
+*Think of a fork as a mutex (each philosopher should have the mutex's adress of his neighber)
 
-I have no other hints
+*I have no other hints
 
 ## Resouces
 
