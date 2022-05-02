@@ -19,7 +19,7 @@ see its that easy.
 
 The problem is that we have some stupid philosophers sitting around a table, each one of them with only one fork (the forks are all at the table), the routine is that each one of them should not die (`starving`), so they should eat.
 
-They need to use two `forks`, since they have only one, each one gonna take his neighbor's fork (if that neighbor is not useing it).
+They need to use two `forks`, since they have only one, each one gonna take his neighbor's fork (if that neighbor is not using it).
 
 If they couldn't eat they think (what other thing a philosopher can do!), until they get to eat or they die starving.
 
@@ -37,7 +37,7 @@ Will happen what's called data race, so keep your data safe and use mutex.
 
 ## Hint
 
-*Think of a fork as a mutex (each philosopher should have the mutex's adress of his neighber)
+*Think of a fork as a mutex (each philosopher should have the mutex's adress of his neighbor)
 
 *I have no other hints
 
