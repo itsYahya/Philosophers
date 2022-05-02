@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 17:23:16 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/05/01 05:00:29 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/05/01 23:45:15 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <stdio.h>
 # include <pthread.h>
 # include <stdlib.h>
-
-pthread_mutex_t	state_mtx_;
 
 typedef struct s_mutex
 {
@@ -51,14 +49,20 @@ typedef struct s_data
 	t_philo			*philos;
 }	t_data;
 
-int		ft_atoi(char *num);
+long	ft_atoi(char *num, int err);
 int		ft_init(t_data *data, char **args);
 int		ft_strlen(char *str);
 void	ft_putstr(char *str, int fd);
 void	ft_putnbr(long num, int blen, char *base);
 void	state_log(t_philo *philo, char *state);
+int		ft_state_die(t_philo *philo);
+void	ft_pthread_unlock(t_philo *philo);
+void	ft_pthread_trylock(t_mutex *left_fork, t_mutex *right_fork,
+			t_philo *philo, int thinking);
+void	ft_lock(t_mutex *left_fork, t_mutex *right_fork, t_philo *philo);
+void	ft_pthread_unlock(t_philo *philo);
 void	*lifetime(void *data);
-void	ft_seewhosdead(t_data *data);
+int		ft_seewhosdead(t_data *data);
 long	ft_gettime(void);
 void	ft_init_time(t_data *data);
 

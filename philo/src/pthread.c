@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 08:37:43 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/04/30 02:29:38 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/05/01 23:40:12 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_init_mutix(t_data *data)
 {
 	int	index;
-	
+
 	index = 0;
 	pthread_mutex_init(&data->state_mtx, NULL);
 	data->time = ft_gettime();
@@ -43,7 +43,8 @@ int	ft_init_thread(t_data data)
 	index = 0;
 	while (index < data.philos_number)
 	{
-		if (pthread_create(&data.philos[index].thrid, NULL, lifetime, &data.philos[index]))
+		if (pthread_create(&data.philos[index].thrid,
+				NULL, lifetime, &data.philos[index]))
 			return (1);
 		index++;
 	}

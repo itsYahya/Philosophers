@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 17:23:07 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/05/01 08:33:05 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/05/01 23:04:57 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 #include <unistd.h>
 #include <sys/time.h>
 
-
 int	main(int argc, char **argv)
 {
 	t_data	data;
 	int		err;
-	
+
 	if (argc == 5 || argc == 6)
 	{
 		err = ft_init(&data, argv + 1);
