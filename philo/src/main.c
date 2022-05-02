@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 17:23:07 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/05/02 14:38:56 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:36:41 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,20 @@
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	int		err;
 
 	if (argc == 5 || argc == 6)
 	{
-		err = ft_init(&data, argv + 1);
-		if (err)
-			return (printf("error occurs\n"), 0);
-		ft_init_mutix(&data);
-		ft_init_thread(data);
+		if (ft_init(&data, argv + 1))
+			return (ft_putstr("one of the arguments is not correct\n", 2), 1);
+		if (ft_init_mutix(&data))
+			return (free(data.philos),
+				ft_putstr("failed to initialise mutex\n", 2), 1);
+		if (ft_init_thread(data))
+			return (free(data.philos),
+				ft_putstr("failed to run threads\n", 2), 1);
 		ft_seewhosdead(&data, 0, 0);
 		ft_destroy_mutix(data);
+		free(data.philos);
 	}
 	return (0);
 }

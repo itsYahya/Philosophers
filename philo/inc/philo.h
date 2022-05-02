@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 17:23:16 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/05/02 15:03:51 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:03:57 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_data
 	t_philo			*philos;
 }	t_data;
 
-long	ft_atoi(char *num, int err);
+long	ft_atoi(char *num, int *err);
 int		ft_init(t_data *data, char **args);
 int		ft_strlen(char *str);
 void	ft_putstr(char *str, int fd);

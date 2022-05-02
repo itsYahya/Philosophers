@@ -6,14 +6,14 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 08:35:36 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/05/02 03:52:24 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:39:08 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include "unistd.h"
 
-long	ft_atoi(char *num, int err)
+long	ft_atoi(char *num, int *err)
 {
 	int		index;
 	long	number;
@@ -25,10 +25,11 @@ long	ft_atoi(char *num, int err)
 	while (num[index] <= '9' && num[index] >= '0')
 	{
 		number = number * 10 + (num[index] - '0');
+		if (number < 0)
+			break ;
 		index++;
 	}
-	if (num[index])
-		return (0);
+	*err += (num[index] || (number < 0));
 	return (number);
 }
 
