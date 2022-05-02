@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 17:23:16 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/05/01 23:45:15 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/05/02 15:03:51 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_philo
 	int				notpmust_eat;
 	int				number;
 	int				alive;
-	char			*test;
+	int				eating;
 }	t_philo;
 
 typedef struct s_data
@@ -54,7 +54,7 @@ int		ft_init(t_data *data, char **args);
 int		ft_strlen(char *str);
 void	ft_putstr(char *str, int fd);
 void	ft_putnbr(long num, int blen, char *base);
-void	state_log(t_philo *philo, char *state);
+void	state_log(t_philo *philo, char *state, long time);
 int		ft_state_die(t_philo *philo);
 void	ft_pthread_unlock(t_philo *philo);
 void	ft_pthread_trylock(t_mutex *left_fork, t_mutex *right_fork,
@@ -62,8 +62,7 @@ void	ft_pthread_trylock(t_mutex *left_fork, t_mutex *right_fork,
 void	ft_lock(t_mutex *left_fork, t_mutex *right_fork, t_philo *philo);
 void	ft_pthread_unlock(t_philo *philo);
 void	*lifetime(void *data);
-int		ft_seewhosdead(t_data *data);
+void	ft_seewhosdead(t_data *data, int index, int number);
 long	ft_gettime(void);
-void	ft_init_time(t_data *data);
 
 #endif

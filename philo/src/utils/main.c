@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 03:51:50 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/05/02 03:52:36 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/05/02 15:03:28 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	ft_clone_args(t_data *data, char **args)
 {
 	int	err;
-	
+
 	err = 0;
 	data->philos_number = ft_atoi(args[0], err);
 	data->philos = (t_philo *)malloc(sizeof(t_philo) * (data->philos_number));
