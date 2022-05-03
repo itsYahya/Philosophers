@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 23:31:54 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/05/02 09:02:18 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:11:38 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ int	ft_state_die(t_philo *philo)
 void	state_log(t_philo *philo, char *state, long time)
 {
 	pthread_mutex_lock(philo->state_mtx);
-	ft_putnbr(time, 10, "0123456789");
-	write(1, " ", 1);
-	ft_putnbr(philo->number, 10, "0123456789");
-	ft_putstr(state, 1);
+	printf("%ld %d%s", time, philo->number, state);
 	pthread_mutex_unlock(philo->state_mtx);
 }
 

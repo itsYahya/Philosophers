@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 03:51:50 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/05/02 17:31:47 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:36:49 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ int	ft_clone_args(t_data *data, char **args)
 	data->philos[0].notpmust_eat = -1;
 	if (args[4])
 		data->philos[0].notpmust_eat = ft_atoi(args[4], &err);
-	if (err)
+	if (err || data->philos[0].time_to_die == 0
+		|| data->philos[0].time_to_eat == 0
+		|| data->philos[0].time_to_sleep == 0
+		|| data->philos[0].notpmust_eat == 0)
 		return (free(data->philos), err);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:06:39 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/05/02 15:02:27 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:30:14 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	ft_seewhosdead(t_data *data, int index, int number)
 {
 	t_philo	*philo;
 
-	usleep(10 * 1000);
+	usleep(1000);
 	while (1)
 	{
 		index = 0;
@@ -98,6 +98,5 @@ void	ft_seewhosdead(t_data *data, int index, int number)
 		}
 		if (number == data->philos_number)
 			return ;
-		usleep(3 * 1000);
 	}
 }
