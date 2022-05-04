@@ -1,4 +1,5 @@
 build
 *.o
 philo_
+philo_bonus_
 .vscode/
