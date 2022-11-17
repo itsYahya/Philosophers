@@ -35,7 +35,7 @@ int	ft_clone_args(t_data *data, char **args)
 		|| data->philos[0].time_to_eat == 0
 		|| data->philos[0].time_to_sleep == 0
 		|| data->philos[0].notpmust_eat == 0)
-		return (free(data->philos), err);
+		return (free(data->philos), err + 1);
 	return (0);
 }
 
@@ -54,7 +54,6 @@ int	ft_init(t_data *data, char **args)
 		data->philos[index].notpmust_eat = data->philos[0].notpmust_eat;
 		data->philos[index].philos_number = data->philos_number;
 		data->philos[index].number = index + 1;
-		data->philos[index].alive = 1;
 		index++;
 	}
 	return (0);
