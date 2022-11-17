@@ -37,8 +37,6 @@ typedef struct s_philo
 	long			lastmeal;
 	int				notpmust_eat;
 	int				number;
-	int				alive;
-	int				eating;
 }	t_philo;
 
 typedef struct s_data
@@ -56,7 +54,6 @@ void	ft_putstr(char *str, int fd);
 void	ft_putnbr(long num, int blen, char *base);
 int		ft_clone_args(t_data *data, char **args);
 void	state_log(t_philo *philo, char *state, long time);
-int		ft_state_die(t_philo *philo);
 void	ft_pthread_unlock(t_philo *philo);
 void	ft_pthread_trylock(t_mutex *left_fork, t_mutex *right_fork,
 			t_philo *philo, int thinking);
@@ -65,5 +62,7 @@ void	ft_pthread_unlock(t_philo *philo);
 void	*lifetime(void *data);
 void	ft_seewhosdead(t_data *data, int index, int number);
 long	ft_gettime(void);
+void	ft_usleep(long tosleep);
+int		ft_max(int a, int b);
 
 #endif

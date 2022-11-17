@@ -25,11 +25,12 @@ int	main(int argc, char **argv)
 		if (ft_init_mutix(&data))
 			return (free(data.philos),
 				ft_putstr("failed to initialise mutex\n", 2), 1);
-		if (ft_init_thread(data))
-			return (free(data.philos),
+		if (ft_init_thread(&data))
+			return (ft_destroy_mutix(&data, data.philos_number),
+				free(data.philos),
 				ft_putstr("failed to run threads\n", 2), 1);
 		ft_seewhosdead(&data, 0, 0);
-		ft_destroy_mutix(data);
+		ft_destroy_mutix(&data, data.philos_number);
 		free(data.philos);
 	}
 	return (0);

@@ -16,7 +16,7 @@
 # include "philo.h"
 
 int		ft_init_mutix(t_data *data);
-int		ft_init_thread(t_data data);
-void	ft_destroy_mutix(t_data data);
+int		ft_init_thread(t_data *data);
+void	ft_destroy_mutix(t_data *data, int philos);
 
 #endif

@@ -42,7 +42,7 @@ void	ft_pthread_unlock(t_philo *philo)
 	pthread_mutex_unlock(&philo->right_fork.mutix);
 	philo->right_fork.islock = 0;
 	state_log(philo, " is sleeping\n", ft_gettime() - philo->time);
-	usleep(philo->time_to_sleep * 1000);
+	ft_usleep(philo->time_to_sleep);
 }
 
 void	*lifetime(void *data)
@@ -58,15 +58,11 @@ void	*lifetime(void *data)
 	{
 		ft_pthread_trylock(philo->left_fork,
 			&philo->right_fork, philo, thinking);
-		philo->eating = 1;
-		if (!philo->alive)
-			break ;
 		state_log(philo, " is eating\n", ft_gettime() - philo->time);
-		usleep(philo->time_to_eat * 1000);
+		philo->lastmeal = ft_gettime();
+		ft_usleep(philo->time_to_eat);
 		if (philo->notpmust_eat > 0)
 			philo->notpmust_eat--;
-		philo->eating = 0;
-		philo->lastmeal = ft_gettime();
 		ft_pthread_unlock(philo);
 		thinking = 1;
 		state_log(philo, " is thinking\n", ft_gettime() - philo->time);
@@ -86,10 +82,8 @@ void	ft_seewhosdead(t_data *data, int index, int number)
 		while (index < data->philos_number)
 		{
 			philo = &data->philos[index];
-			if (((ft_gettime() - philo->lastmeal) > philo->time_to_die)
-				&& !philo->eating)
+			if ((ft_gettime() - philo->lastmeal) > philo->time_to_die)
 			{
-				philo->alive = 0;
 				state_log(philo, " died\n", ft_gettime() - philo->time);
 				return ;
 			}

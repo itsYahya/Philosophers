@@ -53,7 +53,6 @@ int	ft_init(t_data *data, char **args)
 		data->philos[index].notpmust_eat = data->philos[0].notpmust_eat;
 		data->philos[index].philos_number = data->philos_number;
 		data->philos[index].number = index + 1;
-		data->philos[index].alive = 1;
 		index++;
 	}
 	return (0);
