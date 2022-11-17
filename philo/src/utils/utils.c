@@ -61,3 +61,13 @@ void	ft_putnbr(long num, int blen, char *base)
 		ft_putnbr(num / blen, blen, base);
 	write(1, &base[num % blen], 1);
 }
+
+void	ft_usleep(long tosleep)
+{
+	long	start;
+
+	start = ft_gettime();
+	usleep(tosleep * 0.9);
+	while (ft_gettime() - start < tosleep)
+		usleep(50);
+}
