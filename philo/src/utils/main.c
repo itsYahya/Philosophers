@@ -20,7 +20,7 @@ int	ft_notpmust_eat(char *arg, int *err)
 	if (!arg)
 		return (-1);
 	number = ft_atoi(arg, err);
-	if(!number)
+	if (!number)
 		return (-1);
 	return (number);
 }
