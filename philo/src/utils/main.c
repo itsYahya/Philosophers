@@ -13,6 +13,18 @@
 #include "philo.h"
 #include "unistd.h"
 
+int	ft_notpmust_eat(char *arg, int *err)
+{
+	int	number;
+
+	if (!arg)
+		return (-1);
+	number = ft_atoi(arg, err);
+	if(!number)
+		return (-1);
+	return (number);
+}
+
 int	ft_clone_args(t_data *data, char **args)
 {
 	int	err;
@@ -27,14 +39,11 @@ int	ft_clone_args(t_data *data, char **args)
 	data->philos[0].time_to_die = ft_atoi(args[1], &err);
 	data->philos[0].time_to_eat = ft_atoi(args[2], &err);
 	data->philos[0].time_to_sleep = ft_atoi(args[3], &err);
-	data->philos[0].notpmust_eat = -1;
-	if (args[4])
-		data->philos[0].notpmust_eat = ft_atoi(args[4], &err);
+	data->philos[0].notpmust_eat = ft_notpmust_eat(args[4], &err);
 	if (err || data->philos[0].time_to_die == 0
 		|| data->philos[0].time_to_eat == 0
-		|| data->philos[0].time_to_sleep == 0
-		|| data->philos[0].notpmust_eat == 0)
-		return (free(data->philos), err);
+		|| data->philos[0].time_to_sleep == 0)
+		return (free(data->philos), err + 1);
 	return (0);
 }
 
