@@ -6,7 +6,7 @@
 #    By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 14:55:24 by yel-mrab          #+#    #+#              #
-#    Updated: 2022/05/04 10:31:57 by yel-mrab         ###   ########.fr        #
+#    Updated: 2022/11/18 01:04:03 by yel-mrab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = philo_bonus_
 DRBUILD = build
 INC = -I ./inc
-HEADERS = inc/philo.h
-FILES = main utils/main utils/utils
+HEADERS = inc/philo_b.h
+FILES = main utils/main utils/utils philo checkmeals  utils/philo utils/sema_ utils/time
 
 OBJS = $(addprefix $(DRBUILD)/, $(FILES:=.o))
  
