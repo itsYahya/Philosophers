@@ -6,11 +6,11 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 08:35:36 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/05/02 17:39:08 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/11/18 03:41:17 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_b.h"
 #include "unistd.h"
 
 long	ft_atoi(char *num, int *err)
@@ -60,4 +60,14 @@ void	ft_putnbr(long num, int blen, char *base)
 	if (num >= blen)
 		ft_putnbr(num / blen, blen, base);
 	write(1, &base[num % blen], 1);
+}
+
+void	ft_usleep(long tosleep)
+{
+	long	start;
+
+	start = ft_gettime();
+	usleep(tosleep * 0.6);
+	while (ft_gettime() - start < tosleep)
+		usleep(50);
 }
