@@ -6,11 +6,11 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 03:51:50 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/05/03 17:45:39 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/11/18 01:01:52 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_b.h"
 #include "unistd.h"
 #include <stdlib.h>
 
