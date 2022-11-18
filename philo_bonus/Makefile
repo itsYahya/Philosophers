@@ -6,13 +6,13 @@
 #    By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 14:55:24 by yel-mrab          #+#    #+#              #
-#    Updated: 2022/11/18 01:04:03 by yel-mrab         ###   ########.fr        #
+#    Updated: 2022/11/18 04:13:03 by yel-mrab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-NAME = philo_bonus_
+NAME = philo_bonus
 DRBUILD = build
 INC = -I ./inc
 HEADERS = inc/philo_b.h

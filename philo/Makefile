@@ -6,13 +6,13 @@
 #    By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/24 17:24:53 by yel-mrab          #+#    #+#              #
-#    Updated: 2022/05/03 17:38:22 by yel-mrab         ###   ########.fr        #
+#    Updated: 2022/11/18 04:13:16 by yel-mrab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-NAME = philo_
+NAME = philo
 INC = -I ./inc
 
 HEADERS = inc/philo.h inc/pthread_h.h
