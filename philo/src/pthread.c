@@ -6,7 +6,7 @@
 /*   By: yel-mrab <yel-mrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 08:37:43 by yel-mrab          #+#    #+#             */
-/*   Updated: 2022/11/20 18:16:33 by yel-mrab         ###   ########.fr       */
+/*   Updated: 2022/11/20 18:28:22 by yel-mrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ int	ft_init_thread(t_data *data)
 	{
 		if (pthread_create(&data->philos[index].thrid,
 				NULL, lifetime, &data->philos[index]))
-			return (ft_destroy_mutix(&data, data->philos_number), 1);
+			return (ft_destroy_mutix(data, data->philos_number), 1);
 		index++;
 	}
 	index = 0;
 	while (index < data->philos_number)
 		if (pthread_detach(data->philos[index++].thrid))
-			return (1);
+			return (ft_destroy_mutix(data, data->philos_number), 1);
 	return (0);
 }
 
